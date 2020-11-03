@@ -9,9 +9,12 @@ const StyledContainer = styled.div`
   width: 60%;
   padding: 30px;
   border: 0.1px solid black;
+  border-radius: 10px;
 `;
 
 const FormContainer = () => {
+  // These are our state variables
+  // They will be used later on to submit to the API
   const [loan, setLoan] = useState(0);
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
@@ -22,16 +25,16 @@ const FormContainer = () => {
       <Row>
         {/* This one should be the thing displaying credit score */}
         <Col span={8}>col-6</Col>
-        {/* This should be displaying the form */}
+        {/* This should be displaying the form inputs */}
         <Col span={12}>
           <Row>
-            <InputBox title='Current Loan Amount' offset={0} />
-            <InputBox title='Annual Income' offset={8} />
+            <InputBox title='Current Loan Amount' change={setLoan} offset={0} />
+            <InputBox title='Annual Income' change={setIncome} offset={8} />
           </Row>
           <br />
           <Row>
-            <InputBox title='Years in Current Job' offset={0} />
-            <InputBox title='Monthly Debt' offset={8} />
+            <InputBox title='Years in Current Job' change={setYears} offset={0} />
+            <InputBox title='Monthly Debt' change={setDebt} offset={8} />
           </Row>
         </Col>
       </Row>

@@ -8,13 +8,18 @@ const StyledLabel = styled.h6`
 
 const StyledInput = styled(Input)`
   padding-left: 0;
+  padding-bottom: 0;
 `;
 
 const InputBox = props => {
   return (
     <Col span={8} offset={props.offset}>
       <StyledLabel>Annual Income</StyledLabel>
-      <StyledInput bordered={false} />
+      <StyledInput
+        type='number'
+        onChange={e => props.change(e.target.value)}
+        bordered={false}
+      />
       <hr />
     </Col>
   );
