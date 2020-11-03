@@ -7,9 +7,18 @@ const StyledContainer = styled.div`
   margin: auto;
   margin-top: 10em;
   width: 60%;
-  padding: 30px;
   border: 0.1px solid black;
   border-radius: 10px;
+  background-color: white;
+`;
+
+const StyledCol = styled(Col)`
+  border-radius: 10px;
+  background-color: #039be5;
+`;
+
+const StyledForm = styled(Col)`
+  padding: 25px;
 `;
 
 const FormContainer = () => {
@@ -24,19 +33,21 @@ const FormContainer = () => {
     <StyledContainer>
       <Row>
         {/* This one should be the thing displaying credit score */}
-        <Col span={8}>col-6</Col>
+        <StyledCol span={8}>col-6</StyledCol>
+
         {/* This should be displaying the form inputs */}
-        <Col span={12}>
+        <StyledForm span={12} offset={1}>
           <Row>
             <InputBox title='Current Loan Amount' change={setLoan} offset={0} />
             <InputBox title='Annual Income' change={setIncome} offset={8} />
           </Row>
           <br />
+
           <Row>
             <InputBox title='Years in Current Job' change={setYears} offset={0} />
             <InputBox title='Monthly Debt' change={setDebt} offset={8} />
           </Row>
-        </Col>
+        </StyledForm>
       </Row>
     </StyledContainer>
   );
