@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import { Col, Row } from 'antd';
 import styled from 'styled-components';
 import InputBox from './InputBox';
+import CreditColumn from './CreditColumn';
 
 const StyledContainer = styled.div`
   margin: auto;
   margin-top: 10em;
   width: 60%;
-  border: 0.1px solid black;
+  border: 0.1px solid #f2f3f4;
   border-radius: 10px;
   background-color: white;
 `;
 
 const StyledCol = styled(Col)`
   border-radius: 10px;
-  background-color: #039be5;
+  background-color: #abdbf8;
 `;
 
 const StyledForm = styled(Col)`
-  padding: 25px;
+  padding: 3em 25px 25px 25px;
 `;
 
 const FormContainer = () => {
@@ -33,7 +34,9 @@ const FormContainer = () => {
     <StyledContainer>
       <Row>
         {/* This one should be the thing displaying credit score */}
-        <StyledCol span={8}>col-6</StyledCol>
+        <StyledCol span={9}>
+          <CreditColumn score={679} />
+        </StyledCol>
 
         {/* This should be displaying the form inputs */}
         <StyledForm span={12} offset={1}>
@@ -44,7 +47,11 @@ const FormContainer = () => {
           <br />
 
           <Row>
-            <InputBox title='Years in Current Job' change={setYears} offset={0} />
+            <InputBox
+              title='Years in Current Job'
+              change={setYears}
+              offset={0}
+            />
             <InputBox title='Monthly Debt' change={setDebt} offset={8} />
           </Row>
         </StyledForm>
