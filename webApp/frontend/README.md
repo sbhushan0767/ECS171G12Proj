@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Installation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Run the following command:
 
-## Available Scripts
+```
+npm i
+```
 
-In the project directory, you can run:
+# Running th App
 
-### `yarn start`
+Run the following command to run the app:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+npm start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# Styling
 
-### `yarn test`
+Figma link: https://www.figma.com/file/Sdgy27iyKMiXrx2I3rg4EQ/ECS-171?node-id=0%3A1
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For this project, we should use a styling library called Styled-Components. I think this would be best since it makes it a lot easier to style third party stlying libraries like BootStrap, Material-UI and Ant Design.
 
-### `yarn build`
+For the styling library, I think Ant Design would be best since it contains a lot of the components that we need to make the project look pretty good.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I'm open to change if anybody has any input on the decisions above :)
+-Bryan
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# What still needs to be done
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+NOTE: When adding components, it would be easier to find a component onf Ant Design, https://ant.design/components/overview/ and edit since it would save a lot of time.
 
-### `yarn eject`
+- Create the Term select. There should be a state variable called `term`. When the person clicks on the 'Short Term' or 'Long Term', `term` should be set to 'Short Term' or 'Long Term' respectively.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Two select dropdowns. You can get the list of options from the dataset here, https://www.kaggle.com/zaurbegiev/my-dataset?select=credit_test.csv.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- A wheel to display the credit score
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The Calculate Score Button
