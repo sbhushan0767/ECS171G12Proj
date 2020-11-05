@@ -14,7 +14,7 @@ const StyledInput = styled(Input)`
 const InputBox = props => {
   return (
     <Col span={8} offset={props.offset}>
-      <StyledLabel>Annual Income</StyledLabel>
+      <StyledLabel>{props.title}</StyledLabel>
       <StyledInput
         type='number'
         onChange={e => props.change(e.target.value)}
