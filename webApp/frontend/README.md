@@ -23,6 +23,7 @@ For this project, we should use a styling library called Styled-Components. I th
 For the styling library, I think Ant Design would be best since it contains a lot of the components that we need to make the project look pretty good.
 
 I'm open to change if anybody has any input on the decisions above :)
+
 -Bryan
 
 # What still needs to be done
@@ -32,7 +33,5 @@ NOTE: When adding components, it would be easier to find a component onf Ant Des
 - Create the Term select. There should be a state variable called `term`. When the person clicks on the 'Short Term' or 'Long Term', `term` should be set to 'Short Term' or 'Long Term' respectively.
 
 - Two select dropdowns. You can get the list of options from the dataset here, https://www.kaggle.com/zaurbegiev/my-dataset?select=credit_test.csv.
-
-- A wheel to display the credit score
 
 - The Calculate Score Button
