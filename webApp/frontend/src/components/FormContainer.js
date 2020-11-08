@@ -45,8 +45,8 @@ const FormContainer = () => {
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
   const [debt, setDebt] = useState(0);
-  const [homeOwnership, sethomeOwn] = useState(0);
-  const [purpose, setPurpose] = useState(0);
+  const [homeOwnership, sethomeOwnership] = useState('');
+  const [purpose, setPurpose] = useState('');
 
   return (
     <StyledContainer>
@@ -77,7 +77,7 @@ const FormContainer = () => {
           <Row>
             <SelectBox 
               title='Home Ownership' 
-              change={sethomeOwn} 
+              change={sethomeOwnership} 
               offset={0}
               options = {homeOwnOptions}
             />
