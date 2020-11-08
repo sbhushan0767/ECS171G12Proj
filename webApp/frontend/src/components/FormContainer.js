@@ -3,8 +3,8 @@ import { Button, Col, Row } from 'antd';
 import styled from 'styled-components';
 import CreditColumn from './CreditColumn';
 import RadioButtons from './RadioButtons';
-import SelectBoxes from './SelectBoxes';
-import InputBoxes from './InputBoxes';
+import SelectBoxes from './SelectBoxes/SelectBoxes';
+import InputBoxes from './Inputs/InputBoxes';
 
 const StyledContainer = styled.div`
   margin: auto;
