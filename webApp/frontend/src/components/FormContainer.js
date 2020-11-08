@@ -3,6 +3,8 @@ import { Col, Row } from 'antd';
 import styled from 'styled-components';
 import InputBox from './InputBox';
 import CreditColumn from './CreditColumn';
+import RadioButtons from './RadioButtons';
+
 
 const StyledContainer = styled.div`
   margin: auto;
@@ -22,6 +24,7 @@ const StyledForm = styled(Col)`
   padding: 3em 25px 25px 25px;
 `;
 
+
 const FormContainer = () => {
   // These are our state variables
   // They will be used later on to submit to the API
@@ -29,7 +32,9 @@ const FormContainer = () => {
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
   const [debt, setDebt] = useState(0);
-
+  const [term, setTerm] = useState(0);
+  
+  console.log(term); 
   return (
     <StyledContainer>
       <Row>
@@ -54,6 +59,12 @@ const FormContainer = () => {
             />
             <InputBox title='Monthly Debt' change={setDebt} offset={8} />
           </Row>
+          <br/>
+          <h2>Term</h2>
+          <Row>
+          <RadioButtons change = {setTerm} offset={0} />
+          </Row>
+
         </StyledForm>
       </Row>
     </StyledContainer>
