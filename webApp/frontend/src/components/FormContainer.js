@@ -30,11 +30,7 @@ const StyledForm = styled(Col)`
 const ButtonStyle = styled(Button)`
 
 border-radius: 5px;
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 9px;
-line-height: 11px;
+background: ABDBF8;
 `;
 
 const FormContainer = () => {
