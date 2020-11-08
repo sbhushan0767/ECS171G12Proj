@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import InputBox from './InputBox';
 import CreditColumn from './CreditColumn';
 import SelectBox from './SelectBox';
+import { Button } from 'antd';
 
 const homeOwnOptions = [
   { value: 'homeMortgage', label: 'Home Mortgage' },
@@ -88,6 +89,12 @@ const FormContainer = () => {
               options = {purposeOptions}
             />
           </Row>
+          <br/>
+          //Displays Calculate score btn  
+          <Row>
+        <Button type="primary">Calculate Score</Button>
+        </Row>
+    
         </StyledForm>
       </Row>
     </StyledContainer>
