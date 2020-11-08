@@ -3,6 +3,7 @@ import { Col, Input } from 'antd';
 import styled from 'styled-components';
 
 const StyledLabel = styled.h6`
+  font-size: 10px;
   margin-bottom: 0;
 `;
 

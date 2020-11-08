@@ -26,8 +26,10 @@ const StyledForm = styled(Col)`
 
 const ButtonStyle = styled(Button)`
   margin-top: 5em;
+  border: none;
   border-radius: 5px;
-  background-color: ABDBF8;
+  color: white;
+  background-color: #ABDBF8;
 `;
 
 const FormContainer = () => {
@@ -72,7 +74,7 @@ const FormContainer = () => {
           />
 
           <Row>
-            <ButtonStyle type='primary'>Calculate Score</ButtonStyle>
+            <ButtonStyle>Calculate Score</ButtonStyle>
           </Row>
         </StyledForm>
       </Row>

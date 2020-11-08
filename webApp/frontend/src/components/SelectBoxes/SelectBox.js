@@ -3,6 +3,7 @@ import { Col, Select } from 'antd';
 import styled from 'styled-components';
 
 const StyledLabel = styled.h6`
+  font-size: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
 `;
