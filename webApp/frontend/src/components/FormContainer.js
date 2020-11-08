@@ -3,6 +3,22 @@ import { Col, Row } from 'antd';
 import styled from 'styled-components';
 import InputBox from './InputBox';
 import CreditColumn from './CreditColumn';
+import SelectBox from './SelectBox';
+
+const homeOwnOptions = [
+  { value: 'homeMortgage', label: 'Home Mortgage' },
+  { value: 'rent', label: 'Rent' },
+  { value: 'own', label: 'Own Home' },
+  { value: 'haveMortgage', label: 'Have Mortgage'}
+]
+
+const purposeOptions = [
+  { value: 'debtConsolidation', label: 'Debt Consolidation' },
+  { value: 'homeImprovements', label: 'Home Improvements' },
+  { value: 'other1', label: 'other' },
+  { value: 'other2', label: 'Other'},
+  { value: 'business', labe: 'Business Loan'}
+]
 
 const StyledContainer = styled.div`
   margin: auto;
@@ -29,6 +45,8 @@ const FormContainer = () => {
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
   const [debt, setDebt] = useState(0);
+  const [homeOwnership, sethomeOwn] = useState(0);
+  const [purpose, setPurpose] = useState(0);
 
   return (
     <StyledContainer>
@@ -53,6 +71,22 @@ const FormContainer = () => {
               offset={0}
             />
             <InputBox title='Monthly Debt' change={setDebt} offset={8} />
+          </Row>
+
+          {/* To display select boxes */}
+          <Row>
+            <SelectBox 
+              title='Home Ownership' 
+              change={sethomeOwn} 
+              offset={0}
+              options = {homeOwnOptions}
+            />
+            <SelectBox 
+              title='Purpose' 
+              change={setPurpose} 
+              offset={8}
+              options = {purposeOptions}
+            />
           </Row>
         </StyledForm>
       </Row>
