@@ -27,6 +27,15 @@ const StyledForm = styled(Col)`
   padding: 3em 25px 25px 25px;
 `;
 
+const ButtonStyle = styled(Button)`
+
+border-radius: 5px;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 9px;
+line-height: 11px;
+`;
 
 const FormContainer = () => {
   // These are our state variables
@@ -70,7 +79,7 @@ const FormContainer = () => {
           <br/>
           //Displays Calculate score btn  
           <Row>
-        <Button type="primary">Calculate Score</Button>
+        <ButtonStyle type="primary">Calculate Score</ButtonStyle>
         </Row>
     
         </StyledForm>
