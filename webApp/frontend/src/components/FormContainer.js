@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import InputBox from './InputBox';
 import CreditColumn from './CreditColumn';
 import RadioButtons from './RadioButtons';
+import SelectBox from './SelectBox';
+import { Button } from 'antd';
+
 
 
 const StyledContainer = styled.div`
@@ -64,7 +67,12 @@ const FormContainer = () => {
           <Row>
           <RadioButtons change = {setTerm} offset={0} />
           </Row>
-
+          <br/>
+          //Displays Calculate score btn  
+          <Row>
+        <Button type="primary">Calculate Score</Button>
+        </Row>
+    
         </StyledForm>
       </Row>
     </StyledContainer>
