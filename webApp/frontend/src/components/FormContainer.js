@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { Col, Row } from 'antd';
+import { Button, Col, Row } from 'antd';
 import styled from 'styled-components';
-import InputBox from './InputBox';
 import CreditColumn from './CreditColumn';
 import RadioButtons from './RadioButtons';
-import SelectBox from './SelectBox';
-import { Button } from 'antd';
-
-
+import SelectBoxes from './SelectBoxes';
+import InputBoxes from './InputBoxes';
 
 const StyledContainer = styled.div`
   margin: auto;
@@ -28,9 +25,9 @@ const StyledForm = styled(Col)`
 `;
 
 const ButtonStyle = styled(Button)`
-
-border-radius: 5px;
-background: ABDBF8;
+  margin-top: 5em;
+  border-radius: 5px;
+  background-color: ABDBF8;
 `;
 
 const FormContainer = () => {
@@ -40,9 +37,10 @@ const FormContainer = () => {
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
   const [debt, setDebt] = useState(0);
-  const [term, setTerm] = useState(0);
-  
-  console.log(term); 
+  const [homeOwnership, sethomeOwnership] = useState('');
+  const [purpose, setPurpose] = useState('');
+  const [term, setTerm] = useState('');
+
   return (
     <StyledContainer>
       <Row>
@@ -53,31 +51,29 @@ const FormContainer = () => {
 
         {/* This should be displaying the form inputs */}
         <StyledForm span={12} offset={1}>
+          <InputBoxes
+            setLoan={setLoan}
+            setIncome={setIncome}
+            setYears={setYears}
+            setDebt={setDebt}
+          />
+
+          {/* This displays the radio buttons */}
+          <h2>Term</h2>
           <Row>
-            <InputBox title='Current Loan Amount' change={setLoan} offset={0} />
-            <InputBox title='Annual Income' change={setIncome} offset={8} />
+            <RadioButtons change={setTerm} offset={0} />
           </Row>
           <br />
 
+          {/* To display select boxes */}
+          <SelectBoxes
+            sethomeOwnership={sethomeOwnership}
+            setPurpose={setPurpose}
+          />
+
           <Row>
-            <InputBox
-              title='Years in Current Job'
-              change={setYears}
-              offset={0}
-            />
-            <InputBox title='Monthly Debt' change={setDebt} offset={8} />
+            <ButtonStyle type='primary'>Calculate Score</ButtonStyle>
           </Row>
-          <br/>
-          <h2>Term</h2>
-          <Row>
-          <RadioButtons change = {setTerm} offset={0} />
-          </Row>
-          <br/>
-          //Displays Calculate score btn  
-          <Row>
-        <ButtonStyle type="primary">Calculate Score</ButtonStyle>
-        </Row>
-    
         </StyledForm>
       </Row>
     </StyledContainer>
