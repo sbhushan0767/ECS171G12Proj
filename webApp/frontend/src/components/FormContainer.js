@@ -3,8 +3,27 @@ import { Col, Row } from 'antd';
 import styled from 'styled-components';
 import InputBox from './InputBox';
 import CreditColumn from './CreditColumn';
+<<<<<<< HEAD
 import RadioButtons from './RadioButtons';
 
+=======
+import SelectBox from './SelectBox';
+
+const homeOwnOptions = [
+  { value: 'homeMortgage', label: 'Home Mortgage' },
+  { value: 'rent', label: 'Rent' },
+  { value: 'own', label: 'Own Home' },
+  { value: 'haveMortgage', label: 'Have Mortgage'}
+]
+
+const purposeOptions = [
+  { value: 'debtConsolidation', label: 'Debt Consolidation' },
+  { value: 'homeImprovements', label: 'Home Improvements' },
+  { value: 'other1', label: 'other' },
+  { value: 'other2', label: 'Other'},
+  { value: 'business', labe: 'Business Loan'}
+]
+>>>>>>> bd2b8064132597b6fcb85adb28ab3b8c466efb9e
 
 const StyledContainer = styled.div`
   margin: auto;
@@ -32,9 +51,15 @@ const FormContainer = () => {
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
   const [debt, setDebt] = useState(0);
+<<<<<<< HEAD
   const [term, setTerm] = useState(0);
   
   console.log(term); 
+=======
+  const [homeOwnership, sethomeOwnership] = useState('');
+  const [purpose, setPurpose] = useState('');
+
+>>>>>>> bd2b8064132597b6fcb85adb28ab3b8c466efb9e
   return (
     <StyledContainer>
       <Row>
@@ -59,12 +84,31 @@ const FormContainer = () => {
             />
             <InputBox title='Monthly Debt' change={setDebt} offset={8} />
           </Row>
+<<<<<<< HEAD
           <br/>
           <h2>Term</h2>
           <Row>
           <RadioButtons change = {setTerm} offset={0} />
           </Row>
 
+=======
+
+          {/* To display select boxes */}
+          <Row>
+            <SelectBox 
+              title='Home Ownership' 
+              change={sethomeOwnership} 
+              offset={0}
+              options = {homeOwnOptions}
+            />
+            <SelectBox 
+              title='Purpose' 
+              change={setPurpose} 
+              offset={8}
+              options = {purposeOptions}
+            />
+          </Row>
+>>>>>>> bd2b8064132597b6fcb85adb28ab3b8c466efb9e
         </StyledForm>
       </Row>
     </StyledContainer>
