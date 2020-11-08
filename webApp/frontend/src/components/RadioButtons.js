@@ -2,12 +2,6 @@ import React from 'react';
 import { Col, Input, Radio} from 'antd';
 import styled from 'styled-components';
 
-
-
-// const StyledInput = styled(Input)`
-//   padding-left: 0;
-//   padding-bottom: 0;
-// `;
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -22,9 +16,6 @@ const RadioButtons = props => {
           <Radio value={2}>Long Term</Radio>
           </StyledContainer>
         </Radio.Group>
-        
-        
-          
       </Col>
     );
   };
