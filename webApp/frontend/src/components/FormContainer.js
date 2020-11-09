@@ -25,7 +25,8 @@ const StyledForm = styled(Col)`
 `;
 
 const ButtonStyle = styled(Button)`
-  margin-top: 5em;
+  margin-top: 3em;
+  margin-bottom: 3em;
   border: none;
   border-radius: 5px;
   color: white;

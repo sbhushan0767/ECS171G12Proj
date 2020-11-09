@@ -35,7 +35,7 @@ const InputBoxes = props => {
           offset={0}
         />
         <InputBox
-          title='Months since last delinquent'
+          title='Last delinquent'
           change={props.setLastDelinquent}
           offset={8}
         />
@@ -45,12 +45,12 @@ const InputBoxes = props => {
       {/* Row 4 */}
       <Row>
         <InputBox
-          title='Number of Open Accounts'
+          title='# Open Accounts'
           change={props.setOpenAccounts}
           offset={0}
         />
         <InputBox
-          title='Number of Credit Problems'
+          title='# Credit Problems'
           change={props.setCreditProblems}
           offset={8}
         />
