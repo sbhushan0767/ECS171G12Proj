@@ -29,7 +29,7 @@ const ButtonStyle = styled(Button)`
   border: none;
   border-radius: 5px;
   color: white;
-  background-color: #ABDBF8;
+  background-color: #abdbf8;
 `;
 
 const FormContainer = () => {
@@ -39,6 +39,14 @@ const FormContainer = () => {
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
   const [debt, setDebt] = useState(0);
+  const [creditHistory, setCreditHistory] = useState(0);
+  const [lastDelinquent, setLastDelinquent] = useState(0);
+  const [openAccounts, setOpenAccounts] = useState(0);
+  const [creditProblems, setCreditProblems] = useState(0);
+  const [creditBalance, setCreditBalance] = useState(0);
+  const [maxCredit, setMaxCredit] = useState(0);
+  const [bankruptcies, setBankruptcies] = useState(0);
+  const [liens, setLiens] = useState(0);
   const [homeOwnership, sethomeOwnership] = useState('');
   const [purpose, setPurpose] = useState('');
   const [term, setTerm] = useState('');
@@ -58,6 +66,14 @@ const FormContainer = () => {
             setIncome={setIncome}
             setYears={setYears}
             setDebt={setDebt}
+            setCreditHistory={setCreditHistory}
+            setLastDelinquent={setLastDelinquent}
+            setOpenAccounts={setOpenAccounts}
+            setCreditProblems={setCreditProblems}
+            setCreditBalance={setCreditBalance}
+            setMaxCredit={setMaxCredit}
+            setBankruptcies={setBankruptcies}
+            setLiens={setLiens}
           />
 
           {/* This displays the radio buttons */}
