@@ -10,16 +10,10 @@ const StyledContainer = styled.div`
 const RadioButtons = props => {
   return (
     <Col span={8} offset={props.offset}>
-      <Radio.Group
-        onChange={e =>
-          e.target.value === 1
-            ? props.change('Short Term')
-            : props.change('Long Term')
-        }
-      >
+      <Radio.Group onChange={e => props.change(e.target.value)}>
         <StyledContainer>
-          <Radio value={1}>Short Term</Radio>
-          <Radio value={2}>Long Term</Radio>
+          <Radio value={'Short Term'}>Short Term</Radio>
+          <Radio value={'Long Term'}>Long Term</Radio>
         </StyledContainer>
       </Radio.Group>
     </Col>

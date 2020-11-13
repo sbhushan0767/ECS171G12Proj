@@ -12,8 +12,7 @@ const homeOwnOptions = [
 const purposeOptions = [
   { value: 'debtConsolidation', label: 'Debt Consolidation' },
   { value: 'homeImprovements', label: 'Home Improvements' },
-  { value: 'other1', label: 'other' },
-  { value: 'other2', label: 'Other' },
+  { value: 'other', label: 'other' },
   { value: 'business', labe: 'Business Loan' }
 ];
 
