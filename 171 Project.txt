@@ -1,0 +1,8 @@
+'Loan Status', 'Current Loan Amount', 'Term', 'Purpose', 'Years in current job'
+
+'Home Ownership',
+
+
+
+Runtime:
+10,000: 1:40min
