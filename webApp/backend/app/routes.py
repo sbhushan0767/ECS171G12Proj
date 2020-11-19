@@ -1,6 +1,6 @@
 from app import app
 
-@app.route('/')
-@app.route('/index')
-def index():
+@app.route('/predict')
+def predict():
+    # Call model predict function here and return the result back
     return "Hello, World!"
