@@ -29,9 +29,3 @@ I'm open to change if anybody has any input on the decisions above :)
 # What still needs to be done
 
 NOTE: When adding components, it would be easier to find a component onf Ant Design, https://ant.design/components/overview/ and edit since it would save a lot of time.
-
-- Create the Term select. There should be a state variable called `term`. When the person clicks on the 'Short Term' or 'Long Term', `term` should be set to 'Short Term' or 'Long Term' respectively.
-
-- Two select dropdowns. You can get the list of options from the dataset here, https://www.kaggle.com/zaurbegiev/my-dataset?select=credit_test.csv.
-
-- The Calculate Score Button
