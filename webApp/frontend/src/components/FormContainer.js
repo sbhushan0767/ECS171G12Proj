@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Row } from 'antd';
 import styled from 'styled-components';
 import CreditColumn from './CreditColumn';
@@ -36,6 +36,7 @@ const ButtonStyle = styled(Button)`
 const FormContainer = () => {
   // These are our state variables
   // They will be used later on to submit to the API
+  const [creditScore, setCreditScore] = useState(0);
   const [loan, setLoan] = useState(0);
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
@@ -52,12 +53,20 @@ const FormContainer = () => {
   const [purpose, setPurpose] = useState('');
   const [term, setTerm] = useState('');
 
+  // Note this function is used to call the API when the user inputs their credit information
+  // We NEED to change the url when in production
+  const fetchCreditScore = async () => {
+    const result = await fetch(`http://127.0.0.1:5000/predict`);
+    const json = await result.json();
+    setCreditScore(json.creditScore);
+  };
+
   return (
     <StyledContainer>
       <Row>
         {/* This one should be the thing displaying credit score */}
         <StyledCol span={9}>
-          <CreditColumn score={679} />
+          <CreditColumn score={creditScore} />
         </StyledCol>
 
         {/* This should be displaying the form inputs */}
@@ -91,7 +100,9 @@ const FormContainer = () => {
           />
 
           <Row>
-            <ButtonStyle>Calculate Score</ButtonStyle>
+            <ButtonStyle onClick={fetchCreditScore}>
+              Calculate Score
+            </ButtonStyle>
           </Row>
         </StyledForm>
       </Row>
