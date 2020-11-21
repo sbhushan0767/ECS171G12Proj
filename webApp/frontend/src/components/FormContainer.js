@@ -57,7 +57,16 @@ const FormContainer = () => {
   // Note this function is used to call the API when the user inputs their credit information
   // We NEED to change the url when in production
   const fetchCreditScore = async () => {
-    const result = await fetch(`http://127.0.0.1:5000/predict`);
+    var data = {'load':loan,"income":income,"years":years,"debt":debt,"creditHistory":creditHistory,lastDelinquent,
+     "openAccounts":openAccounts,"creditProblems":creditProblems,"creditBalance":creditBalance,"maxCredit":maxCredit,"bankruptcies":bankruptcies,
+     "liens":liens,"homeOwnership":homeOwnership,"purpose":purpose,"loanStatus":loanStatus,"term":term};
+    
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  };
+    const result = await fetch(`http://127.0.0.1:5000/predict`,requestOptions);
     const json = await result.json();
     setCreditScore(json.creditScore);
   };

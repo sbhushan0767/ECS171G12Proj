@@ -1,6 +1,7 @@
 from app import app
 import random
 import pickle
+from flask import request
 
 '''
 We need to open the model.pkl file using this:
@@ -11,9 +12,11 @@ if not then use this to create one in modeling.ipynb file:
     pickle.dump(name_of_model, open('model.pkl','wb'))
 '''
 
-@app.route('/predict')
+@app.route('/predict',methods=["POST"])
 def predict():
     # Call model predict function here and return the result back
+    #req var has all the submitted data
+    req = request.get_json()
     creditScore = random.randint(350, 850)
 
     return {'creditScore': creditScore}
