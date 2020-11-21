@@ -51,6 +51,7 @@ const FormContainer = () => {
   const [liens, setLiens] = useState(0);
   const [homeOwnership, sethomeOwnership] = useState('');
   const [purpose, setPurpose] = useState('');
+  const [loanStatus, setLoanStatus] = useState('')
   const [term, setTerm] = useState('');
 
   // Note this function is used to call the API when the user inputs their credit information
@@ -97,6 +98,7 @@ const FormContainer = () => {
           <SelectBoxes
             sethomeOwnership={sethomeOwnership}
             setPurpose={setPurpose}
+            setLoanStatus={setLoanStatus}
           />
 
           <Row>

@@ -16,6 +16,11 @@ const purposeOptions = [
   { value: 'business', labe: 'Business Loan' }
 ];
 
+const loanStatusOptions = [
+  { value: 'fullyPaid', label: 'Fully Paid'},
+  { value: 'chargedOff', label: 'Charged Off'}
+];
+
 const SelectBoxes = props => {
   return (
     <Row>
@@ -30,6 +35,12 @@ const SelectBoxes = props => {
         change={props.setPurpose}
         offset={8}
         options={purposeOptions}
+      />
+      <SelectBox
+        title='Loan Status'
+        change={props.setLoanStatus}
+        offset={0}
+        options={loanStatusOptions}
       />
     </Row>
   );
