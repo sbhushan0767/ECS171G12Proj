@@ -113,10 +113,13 @@ const FormContainer = () => {
           />
 
           {/* This displays the radio buttons */}
-          <h2>Term</h2>
-          <Row>
-            <RadioButtons change={setTerm} offset={0} />
-          </Row>
+          <RadioButtons
+            setTerm={setTerm}
+            setCreditProblems={setCreditProblems}
+            setBankruptcies={setBankruptcies}
+            setLiens={setLiens}
+            offset={0}
+          />
           <br />
 
           {/* To display select boxes */}

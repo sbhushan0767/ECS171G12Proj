@@ -65,8 +65,8 @@ const InputBoxes = props => {
           min={0}
         />
         <InputBox
-          title='# Credit Problems'
-          change={props.setCreditProblems}
+          title='Current Credit Balance'
+          change={props.setCreditBalance}
           offset={8}
           min={0}
         />
@@ -76,35 +76,10 @@ const InputBoxes = props => {
       {/* Row 5 */}
       <Row>
         <InputBox
-          title='Current Credit Balance'
-          change={props.setCreditBalance}
-          offset={0}
-          min={0}
-        />
-        <InputBox
           title='Maximum Open Credit'
           change={props.setMaxCredit}
-          offset={8}
-          min={0}
-        />
-      </Row>
-      <br />
-
-      {/* Row 6 */}
-      <Row>
-        <InputBox
-          title='Bankruptcies'
-          change={props.setBankruptcies}
           offset={0}
           min={0}
-          max={1}
-        />
-        <InputBox
-          title='Tax Liens'
-          change={props.setLiens}
-          offset={8}
-          min={0}
-          max={1}
         />
       </Row>
       <br />
