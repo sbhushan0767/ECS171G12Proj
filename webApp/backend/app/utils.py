@@ -21,7 +21,6 @@ def processRawData(inputData):
     df['creditHistory'] = numericNormalized[4]
     df['lastDelinquent'] = numericNormalized[5]
     df['openAccounts'] = numericNormalized[6]
-    df['creditProblems'] = numericNormalized[7]
     df['creditBalance'] = numericNormalized[8]
     df['maxCredit'] = numericNormalized[9]
 
