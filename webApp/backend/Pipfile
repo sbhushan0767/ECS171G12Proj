@@ -8,6 +8,10 @@ verify_ssl = true
 [packages]
 flask = "*"
 flask-cors = "*"
+pandas = "*"
+numpy = "*"
+sklearn = "*"
+imblearn = "*"
 
 [requires]
 python_version = "3.8"
