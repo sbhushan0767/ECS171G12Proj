@@ -36,7 +36,10 @@ const ButtonStyle = styled(Button)`
 const FormContainer = () => {
   // These are our state variables
   // They will be used later on to submit to the API
-  const [creditScore, setCreditScore] = useState(0);
+  const [linearScore, setLinearScore] = useState(0);
+  const [svrScore, setSvrScore] = useState(0);
+  const [logisticScore, setLogisticScore] = useState(0);
+  const [forestScore, setForestScore] = useState(0);
   const [loan, setLoan] = useState(0);
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
@@ -84,7 +87,7 @@ const FormContainer = () => {
 
     const result = await fetch(`http://127.0.0.1:5000/predict`, requestOptions);
     const json = await result.json();
-    setCreditScore(json.creditScore);
+    setLinearScore(json.creditScore);
   };
 
   return (
@@ -92,7 +95,19 @@ const FormContainer = () => {
       <Row>
         {/* This one should be the thing displaying credit score */}
         <StyledCol span={9}>
-          <CreditColumn score={creditScore} />
+          <CreditColumn
+            score={linearScore}
+            title={'Linear Regression Credit Score'}
+          />
+          <CreditColumn score={svrScore} title={'SVR Credit Score'} />
+          <CreditColumn
+            score={logisticScore}
+            title={'Logistic Regression Credit Score'}
+          />
+          <CreditColumn
+            score={forestScore}
+            title={'Random Forest Credit Score'}
+          />
         </StyledCol>
 
         {/* This should be displaying the form inputs */}
