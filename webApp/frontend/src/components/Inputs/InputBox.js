@@ -20,6 +20,8 @@ const InputBox = props => {
         type='number'
         onChange={e => props.change(parseFloat(e.target.value))}
         bordered={false}
+        min={props.min}
+        max={props?.max}
       />
       <hr />
     </Col>

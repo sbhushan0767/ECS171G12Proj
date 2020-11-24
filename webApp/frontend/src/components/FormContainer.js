@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Row } from 'antd';
 import styled from 'styled-components';
 import CreditColumn from './CreditColumn';
@@ -57,7 +57,7 @@ const FormContainer = () => {
   // Note this function is used to call the API when the user inputs their credit information
   // We NEED to change the url when in production
   const fetchCreditScore = async () => {
-    var data = {
+    const data = {
       loan: loan,
       income: income,
       years: years,
