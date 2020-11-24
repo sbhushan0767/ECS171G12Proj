@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Radio } from 'antd';
+import { Col, Radio, Row } from 'antd';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -9,14 +9,59 @@ const StyledContainer = styled.div`
 
 const RadioButtons = props => {
   return (
-    <Col span={8} offset={props.offset}>
-      <Radio.Group onChange={e => props.change(e.target.value)}>
-        <StyledContainer>
-          <Radio value={'Short Term'}>Short Term</Radio>
-          <Radio value={'Long Term'}>Long Term</Radio>
-        </StyledContainer>
-      </Radio.Group>
-    </Col>
+    <div>
+      <h3>Term</h3>
+      <Row>
+        <Col span={8} offset={props.offset}>
+          <Radio.Group onChange={e => props.setTerm(e.target.value)}>
+            <StyledContainer>
+              <Radio value={'Short Term'}>Short Term</Radio>
+              <Radio value={'Long Term'}>Long Term</Radio>
+            </StyledContainer>
+          </Radio.Group>
+        </Col>
+      </Row>
+      <br />
+
+      <h3>Do you have credit problems?</h3>
+      <Row>
+        <Col span={8} offset={props.offset}>
+          <Radio.Group onChange={e => props.setCreditProblems(e.target.value)}>
+            <StyledContainer>
+              <Radio value={1}>True</Radio>
+              <Radio value={0}>False</Radio>
+            </StyledContainer>
+          </Radio.Group>
+        </Col>
+      </Row>
+      <br />
+
+      <h3>Do you have any bankruptcies?</h3>
+      <Row>
+        <Col span={8} offset={props.offset}>
+          <Radio.Group onChange={e => props.setBankruptcies(e.target.value)}>
+            <StyledContainer>
+              <Radio value={1}>True</Radio>
+              <Radio value={0}>False</Radio>
+            </StyledContainer>
+          </Radio.Group>
+        </Col>
+      </Row>
+      <br />
+
+      <h3>Do you have any Tax Liens?</h3>
+      <Row>
+        <Col span={8} offset={props.offset}>
+          <Radio.Group onChange={e => props.setLiens(e.target.value)}>
+            <StyledContainer>
+              <Radio value={1}>True</Radio>
+              <Radio value={0}>False</Radio>
+            </StyledContainer>
+          </Radio.Group>
+        </Col>
+      </Row>
+      <br />
+    </div>
   );
 };
 

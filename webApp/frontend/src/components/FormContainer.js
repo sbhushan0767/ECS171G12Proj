@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Row } from 'antd';
 import styled from 'styled-components';
 import CreditColumn from './CreditColumn';
@@ -36,7 +36,10 @@ const ButtonStyle = styled(Button)`
 const FormContainer = () => {
   // These are our state variables
   // They will be used later on to submit to the API
-  const [creditScore, setCreditScore] = useState(0);
+  const [linearScore, setLinearScore] = useState(0);
+  const [svrScore, setSvrScore] = useState(0);
+  const [logisticScore, setLogisticScore] = useState(0);
+  const [forestScore, setForestScore] = useState(0);
   const [loan, setLoan] = useState(0);
   const [income, setIncome] = useState(0);
   const [years, setYears] = useState(0);
@@ -51,24 +54,40 @@ const FormContainer = () => {
   const [liens, setLiens] = useState(0);
   const [homeOwnership, sethomeOwnership] = useState('');
   const [purpose, setPurpose] = useState('');
-  const [loanStatus, setLoanStatus] = useState('')
+  const [loanStatus, setLoanStatus] = useState('');
   const [term, setTerm] = useState('');
 
   // Note this function is used to call the API when the user inputs their credit information
   // We NEED to change the url when in production
   const fetchCreditScore = async () => {
-    var data = {'load':loan,"income":income,"years":years,"debt":debt,"creditHistory":creditHistory,lastDelinquent,
-     "openAccounts":openAccounts,"creditProblems":creditProblems,"creditBalance":creditBalance,"maxCredit":maxCredit,"bankruptcies":bankruptcies,
-     "liens":liens,"homeOwnership":homeOwnership,"purpose":purpose,"loanStatus":loanStatus,"term":term};
-    
+    const data = {
+      loan: loan,
+      income: income,
+      years: years,
+      debt: debt,
+      creditHistory: creditHistory,
+      lastDelinquent: lastDelinquent,
+      openAccounts: openAccounts,
+      creditProblems: creditProblems,
+      creditBalance: creditBalance,
+      maxCredit: maxCredit,
+      bankruptcies: bankruptcies,
+      liens: liens,
+      homeOwnership: homeOwnership,
+      purpose: purpose,
+      loanStatus: loanStatus,
+      term: term
+    };
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
-  };
-    const result = await fetch(`http://127.0.0.1:5000/predict`,requestOptions);
+    };
+
+    const result = await fetch(`http://127.0.0.1:5000/predict`, requestOptions);
     const json = await result.json();
-    setCreditScore(json.creditScore);
+    setLinearScore(json.creditScore);
   };
 
   return (
@@ -76,7 +95,19 @@ const FormContainer = () => {
       <Row>
         {/* This one should be the thing displaying credit score */}
         <StyledCol span={9}>
-          <CreditColumn score={creditScore} />
+          <CreditColumn
+            score={linearScore}
+            title={'Linear Regression Credit Score'}
+          />
+          <CreditColumn score={svrScore} title={'SVR Credit Score'} />
+          <CreditColumn
+            score={logisticScore}
+            title={'Logistic Regression Credit Score'}
+          />
+          <CreditColumn
+            score={forestScore}
+            title={'Random Forest Credit Score'}
+          />
         </StyledCol>
 
         {/* This should be displaying the form inputs */}
@@ -97,10 +128,13 @@ const FormContainer = () => {
           />
 
           {/* This displays the radio buttons */}
-          <h2>Term</h2>
-          <Row>
-            <RadioButtons change={setTerm} offset={0} />
-          </Row>
+          <RadioButtons
+            setTerm={setTerm}
+            setCreditProblems={setCreditProblems}
+            setBankruptcies={setBankruptcies}
+            setLiens={setLiens}
+            offset={0}
+          />
           <br />
 
           {/* To display select boxes */}

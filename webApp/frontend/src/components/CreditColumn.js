@@ -10,11 +10,11 @@ const StyledContainer = styled.div`
 
 const StyledProgress = styled(Progress)`
   margin: auto;
-  padding: 0 15px 3em 15px;
+  padding: 0 15px 1em 15px;
 `;
 
-const StyledTitle = styled.h1`
-  padding: 0.5em 0 2em 0;
+const StyledTitle = styled.h3`
+  padding: 0.5em 0 0.5em 0;
   color: white;
 `;
 
@@ -24,7 +24,7 @@ const FormContainer = props => {
 
   return (
     <StyledContainer>
-      <StyledTitle>Credit Score</StyledTitle>
+      <StyledTitle>{props.title}</StyledTitle>
       <StyledProgress
         percent={percentage}
         strokeColor={{
