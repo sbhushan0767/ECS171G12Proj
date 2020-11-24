@@ -18,7 +18,7 @@ const InputBox = props => {
       <StyledLabel>{props.title}</StyledLabel>
       <StyledInput
         type='number'
-        onChange={e => props.change(e.target.value)}
+        onChange={e => props.change(parseFloat(e.target.value))}
         bordered={false}
       />
       <hr />
