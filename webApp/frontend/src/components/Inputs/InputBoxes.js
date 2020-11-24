@@ -11,8 +11,14 @@ const InputBoxes = props => {
           title='Current Loan Amount'
           change={props.setLoan}
           offset={0}
+          min={0}
         />
-        <InputBox title='Annual Income' change={props.setIncome} offset={8} />
+        <InputBox
+          title='Annual Income'
+          change={props.setIncome}
+          offset={8}
+          min={0}
+        />
       </Row>
       <br />
 
@@ -22,8 +28,14 @@ const InputBoxes = props => {
           title='Years in Current Job'
           change={props.setYears}
           offset={0}
+          min={0}
         />
-        <InputBox title='Monthly Debt' change={props.setDebt} offset={8} />
+        <InputBox
+          title='Monthly Debt'
+          change={props.setDebt}
+          offset={8}
+          min={0}
+        />
       </Row>
       <br />
 
@@ -33,11 +45,13 @@ const InputBoxes = props => {
           title='Years of Credit History'
           change={props.setCreditHistory}
           offset={0}
+          min={0}
         />
         <InputBox
           title='Last delinquent'
           change={props.setLastDelinquent}
           offset={8}
+          min={0}
         />
       </Row>
       <br />
@@ -48,11 +62,13 @@ const InputBoxes = props => {
           title='# Open Accounts'
           change={props.setOpenAccounts}
           offset={0}
+          min={0}
         />
         <InputBox
-          title='# Credit Problems'
-          change={props.setCreditProblems}
+          title='Current Credit Balance'
+          change={props.setCreditBalance}
           offset={8}
+          min={0}
         />
       </Row>
       <br />
@@ -60,26 +76,11 @@ const InputBoxes = props => {
       {/* Row 5 */}
       <Row>
         <InputBox
-          title='Current Credit Balance'
-          change={props.setCreditBalance}
-          offset={0}
-        />
-        <InputBox
           title='Maximum Open Credit'
           change={props.setMaxCredit}
-          offset={8}
-        />
-      </Row>
-      <br />
-
-      {/* Row 6 */}
-      <Row>
-        <InputBox
-          title='Bankruptcies'
-          change={props.setBankruptcies}
           offset={0}
+          min={0}
         />
-        <InputBox title='Tax Liens' change={props.setLiens} offset={8} />
       </Row>
       <br />
     </div>
