@@ -7,6 +7,7 @@ import pandas as pd
 import pickle
 
 linearModel = pickle.load(open('./app/models/linearModel.pkl', 'rb'))
+logisticModel = pickle.load(open('./app/models/logisticModel.pkl', 'rb'))
 
 '''
 We need to open the model.pkl file using this:
@@ -26,8 +27,11 @@ def predict():
     minScore = 585
     data = request.get_json()
     processedData = processRawData(data)
-    prediction = linearModel.predict(processedData)
-    creditScore = (prediction * (maxScore - minScore)) + minScore
-    print(creditScore)
+    linearPrediction = linearModel.predict(processedData)
+    linearCreditScore = (linearPrediction * (maxScore - minScore)) + minScore
+
+    logisticPrediction = logisticModel.predict(processedData)
+    logisticCreditScore = (logisticPrediction * (maxScore - minScore)) + minScore
+    # print(creditScore)
     
-    return {'creditScore': int(creditScore)}
+    return {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore':int(logisticCreditScore)}

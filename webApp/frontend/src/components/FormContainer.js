@@ -87,7 +87,8 @@ const FormContainer = () => {
 
     const result = await fetch(`http://127.0.0.1:5000/predict`, requestOptions);
     const json = await result.json();
-    setLinearScore(json.creditScore);
+    setLinearScore(json.linearCreditScore);
+    setLogisticScore(json.logisticCreditScore);
   };
 
   return (
