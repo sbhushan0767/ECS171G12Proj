@@ -19,29 +19,29 @@ scoreRanges = [[585, 602], [602, 618], [618, 635], [635, 651], [
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    # Call model predict function here and return the result back
-    # data var has all the submitted data
     maxScore = 751
     minScore = 585
+    # Process data from frontend.
     data = request.get_json()
     processedData = processRawData(data)
+
+    # Using Linear Model
     linearPrediction = linearModel.predict(processedData)
     linearCreditScore = (linearPrediction * (maxScore - minScore)) + minScore
 
+    # Using SVR Model
     svrPrediction = svrModel.predict(processedData)
     svrCreditScore = (svrPrediction * (maxScore - minScore)) + minScore
 
+    # Using Logistic Model
     logisticPrediction = logisticModel.predict(processedData)
     logisticCreditScore = scoreRanges[logisticPrediction[0]]
 
+    # Using Random Forest Model
     randomForestPrediction = randomForestModel.predict(processedData)
-    randomForestCreditScore = (
-        randomForestPrediction * (maxScore - minScore)) + minScore
-
-    print(linearPrediction, svrPrediction,
-          logisticPrediction, randomForestPrediction)
+    randomForestCreditScore = scoreRanges[randomForestPrediction[0]]
 
     results = {'linearCreditScore': int(linearCreditScore), 'svrCreditScore': int(svrCreditScore), 'logisticCreditScore':
-               logisticCreditScore, 'randomForestCreditScore': int(randomForestCreditScore)}
+               logisticCreditScore, 'randomForestCreditScore': randomForestCreditScore}
 
     return results
