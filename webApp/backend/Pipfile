@@ -12,6 +12,7 @@ pandas = "*"
 numpy = "*"
 sklearn = "*"
 imblearn = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.8"

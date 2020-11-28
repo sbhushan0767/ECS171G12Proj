@@ -16,13 +16,11 @@ df = pd.read_csv('../../../../datasets/credit.csv')
 le = LabelEncoder()
 df[["Credit Score Range"]] = df[["Credit Score Range"]].apply(le.fit_transform)
 
-#oversampling
-df['Credit Score Range'].value_counts().plot(kind='bar',figsize=(15,5))
-to_drop = ["Credit Score", "Credit Score Range"]
-X = df.drop(to_drop, axis = 1)
+X = df.drop(columns = ['Loan ID', 'Customer ID', 'Credit Score', 'Credit Score Range'])
 labels = df["Credit Score Range"]
 
-X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size=0.25, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, labels, test_size=0.25, random_state=1)
 X_train = X_train.to_numpy()
 y_train = y_train.to_numpy()
 
@@ -30,7 +28,7 @@ ros = RandomOverSampler(random_state=0)
 X_resampled, y_resampled = ros.fit_resample(X_train, y_train)
 counted_target = Counter(y_resampled)
 
-clf = LogisticRegression(penalty = 'l2', max_iter=1000)
+clf = LogisticRegression(penalty='l2', max_iter=1000)
 clf.fit(X_resampled, y_resampled)
 
 y_pred_train = clf.predict(X_resampled)

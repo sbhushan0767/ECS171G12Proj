@@ -31,7 +31,8 @@ def predict():
     linearCreditScore = (linearPrediction * (maxScore - minScore)) + minScore
 
     logisticPrediction = logisticModel.predict(processedData)
-    logisticCreditScore = (logisticPrediction * (maxScore - minScore)) + minScore
+    logisticCreditScore = (logisticPrediction *
+                           (maxScore - minScore)) + minScore
     # print(creditScore)
-    
-    return {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore':int(logisticCreditScore)}
+
+    return {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore': int(logisticCreditScore)}
