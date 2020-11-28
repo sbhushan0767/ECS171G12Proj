@@ -102,13 +102,11 @@ const FormContainer = () => {
             score={linearScore}
             title={'Linear Regression Credit Score'}
           />
-          <CreditColumn 
-            score={svrScore} 
-            title={'SVR Credit Score'} 
-            />
+          <CreditColumn score={svrScore} title={'SVR Credit Score'} />
           <CreditColumn
             score={logisticScore}
             title={'Logistic Regression Credit Score'}
+            format={logisticScore}
           />
           <CreditColumn
             score={forestScore}
