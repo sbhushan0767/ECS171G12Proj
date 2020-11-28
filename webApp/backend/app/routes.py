@@ -33,6 +33,11 @@ def predict():
     logisticPrediction = logisticModel.predict(processedData)
     logisticCreditScore = (logisticPrediction *
                            (maxScore - minScore)) + minScore
+    
+    randomForestPrediction = randomForestModel.predict(processedData)
+    randomForestCreditScore = (randomForestPrediction * (maxScore - minScore)) + minScore
     # print(creditScore)
+    
+    return {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore':int(logisticCreditScore), 'randomForestCreditScore':int(randomForestCreditScore)}
+    
 
-    return {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore': int(logisticCreditScore)}
