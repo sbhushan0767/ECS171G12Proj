@@ -8,6 +8,8 @@ import pickle
 
 linearModel = pickle.load(open('./app/models/linearModel.pkl', 'rb'))
 logisticModel = pickle.load(open('./app/models/logisticModel.pkl', 'rb'))
+randomForestModel = pickle.load(
+    open('./app/models/randomForestModel.pkl', 'rb'))
 
 '''
 We need to open the model.pkl file using this:
@@ -33,11 +35,12 @@ def predict():
     logisticPrediction = logisticModel.predict(processedData)
     logisticCreditScore = (logisticPrediction *
                            (maxScore - minScore)) + minScore
-    
-    randomForestPrediction = randomForestModel.predict(processedData)
-    randomForestCreditScore = (randomForestPrediction * (maxScore - minScore)) + minScore
-    # print(creditScore)
-    
-    return {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore':int(logisticCreditScore), 'randomForestCreditScore':int(randomForestCreditScore)}
-    
 
+    randomForestPrediction = randomForestModel.predict(processedData)
+    randomForestCreditScore = (
+        randomForestPrediction * (maxScore - minScore)) + minScore
+
+    results = {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore': int(
+        logisticCreditScore), 'randomForestCreditScore': int(randomForestCreditScore)}
+
+    return results
