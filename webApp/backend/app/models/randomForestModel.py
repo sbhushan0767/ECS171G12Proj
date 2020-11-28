@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, PolynomialFeatures
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import RandomOverSampler
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
 # Read in processed data
@@ -18,21 +18,15 @@ df[["Credit Score Range"]] = df[["Credit Score Range"]].apply(le.fit_transform)
 
 X = df.drop(columns=['Loan ID', 'Customer ID',
                      'Credit Score', 'Credit Score Range'])
-y = df["Credit Score"]
+y = df["Credit Score Range"]
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.25, random_state=1)
 
-grid_1 = {'n_estimators': [2, 5, 10, 15],
-          'max_depth': [30, 40, 45, 50]}
+params = {'n_estimators': [2, 5, 10, 15]}
 
-rf = RandomForestRegressor(random_state=1, verbose=1, n_jobs=6)
-# The parameters of the estimator used to apply these methods are optimized by cross-validated grid-search over a parameter grid.
-grid_rf = GridSearchCV(rf, grid_1, cv=3)
+classifier_RF = RandomForestClassifier()
+grid_rf = GridSearchCV(classifier_RF, params, cv=5)
 grid_rf.fit(X_train, y_train)
 
-rf_best = grid_rf.best_estimator_
-rf_best.fit(X_train, y_train)
-pred_rf_test = rf_best.predict(X_test)
-
-pickle.dump(rf_best, open('randomForestModel.pkl', 'wb'))
+pickle.dump(grid_rf, open('randomForestModel.pkl', 'wb'))
 randomForestModel = pickle.load(open('randomForestModel.pkl', 'rb'))
