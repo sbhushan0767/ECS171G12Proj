@@ -89,6 +89,7 @@ const FormContainer = () => {
     const json = await result.json();
     setLinearScore(json.linearCreditScore);
     setLogisticScore(json.logisticCreditScore);
+    setRandomForestScore(json.randomForestCreditScore);
   };
 
   return (
