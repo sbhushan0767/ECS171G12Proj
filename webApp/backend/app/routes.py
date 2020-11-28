@@ -7,6 +7,7 @@ import pandas as pd
 import pickle
 
 linearModel = pickle.load(open('./app/models/linearModel.pkl', 'rb'))
+svrModel = pickle.load(open('./app/models/svrModel.pkl', 'rb'))
 logisticModel = pickle.load(open('./app/models/logisticModel.pkl', 'rb'))
 randomForestModel = pickle.load(
     open('./app/models/randomForestModel.pkl', 'rb'))
@@ -32,6 +33,9 @@ def predict():
     linearPrediction = linearModel.predict(processedData)
     linearCreditScore = (linearPrediction * (maxScore - minScore)) + minScore
 
+    svrPrediction = svrModel.predict(processedData)
+    svrCreditScore = (svrPrediction * (maxScore - minScore)) + minScore
+
     logisticPrediction = logisticModel.predict(processedData)
     logisticCreditScore = (logisticPrediction *
                            (maxScore - minScore)) + minScore
@@ -40,7 +44,7 @@ def predict():
     randomForestCreditScore = (
         randomForestPrediction * (maxScore - minScore)) + minScore
 
-    results = {'linearCreditScore': int(linearCreditScore), 'logisticCreditScore': int(
+    results = {'linearCreditScore': int(linearCreditScore), 'svrCreditScore': int(svrCreditScore), 'logisticCreditScore': int(
         logisticCreditScore), 'randomForestCreditScore': int(randomForestCreditScore)}
 
     return results

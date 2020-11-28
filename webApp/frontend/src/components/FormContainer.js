@@ -88,6 +88,7 @@ const FormContainer = () => {
     const result = await fetch(`http://127.0.0.1:5000/predict`, requestOptions);
     const json = await result.json();
     setLinearScore(json.linearCreditScore);
+    setSvrScore(json.svrCreditScore);
     setLogisticScore(json.logisticCreditScore);
     setForestScore(json.randomForestCreditScore);
   };
@@ -101,7 +102,10 @@ const FormContainer = () => {
             score={linearScore}
             title={'Linear Regression Credit Score'}
           />
-          <CreditColumn score={svrScore} title={'SVR Credit Score'} />
+          <CreditColumn 
+            score={svrScore} 
+            title={'SVR Credit Score'} 
+            />
           <CreditColumn
             score={logisticScore}
             title={'Logistic Regression Credit Score'}
