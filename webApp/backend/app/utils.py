@@ -26,14 +26,12 @@ def processRawData(inputData):
 
     categoricalData = df[["homeOwnership",
                           "purpose",
-                          "loanStatus",
-                          "term"]]
+                          "loanStatus"]]
 
     le = preprocessing.LabelEncoder()
     categNormalized = le.fit_transform(np.asarray(list(categoricalData)))
     df['homeOwnership'] = categNormalized[0]
     df['purpose'] = categNormalized[1]
     df['loanStatus'] = categNormalized[2]
-    df['term'] = categNormalized[3]
 
     return df
