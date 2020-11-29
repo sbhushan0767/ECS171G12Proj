@@ -24,14 +24,14 @@ def predict():
     # Process data from frontend.
     data = request.get_json()
     processedData = processRawData(data)
-
+    
     # Using Linear Model
     linearPrediction = linearModel.predict(processedData)
-    linearCreditScore = (linearPrediction * (maxScore - minScore)) + minScore
+    linearCreditScore = linearPrediction * (maxScore - minScore) + minScore
 
     # Using SVR Model
     svrPrediction = svrModel.predict(processedData)
-    svrCreditScore = (svrPrediction * (maxScore - minScore)) + minScore
+    svrCreditScore = svrPrediction * (maxScore - minScore) + minScore
 
     # Using Logistic Model
     logisticPrediction = logisticModel.predict(processedData)
