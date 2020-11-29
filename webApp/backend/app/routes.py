@@ -6,28 +6,42 @@ import numpy as np
 import pandas as pd
 import pickle
 
+# Opens up the model files
 linearModel = pickle.load(open('./app/models/linearModel.pkl', 'rb'))
+svrModel = pickle.load(open('./app/models/svrModel.pkl', 'rb'))
+logisticModel = pickle.load(open('./app/models/logisticModel.pkl', 'rb'))
+randomForestModel = pickle.load(
+    open('./app/models/randomForestModel.pkl', 'rb'))
 
-'''
-We need to open the model.pkl file using this:
-model = pickle.load(open("model.pkl",'rb'))
-
-make sure that model pickle file is created in modeling.ipynb 
-if not then use this to create one in modeling.ipynb file:
-    pickle.dump(name_of_model, open('model.pkl','wb'))
-'''
+scoreRanges = [[585, 602], [602, 618], [618, 635], [635, 651], [
+    651, 668], [668, 685], [685, 701], [701, 718], [718, 734], [734, 751]]
 
 
 @app.route('/predict', methods=["POST"])
 def predict():
-    # Call model predict function here and return the result back
-    # data var has all the submitted data
     maxScore = 751
     minScore = 585
+    # Process data from frontend.
     data = request.get_json()
     processedData = processRawData(data)
-    prediction = linearModel.predict(processedData)
-    creditScore = (prediction * (maxScore - minScore)) + minScore
-    print(creditScore)
     
-    return {'creditScore': int(creditScore)}
+    # Using Linear Model
+    linearPrediction = linearModel.predict(processedData)
+    linearCreditScore = linearPrediction * (maxScore - minScore) + minScore
+
+    # Using SVR Model
+    svrPrediction = svrModel.predict(processedData)
+    svrCreditScore = svrPrediction * (maxScore - minScore) + minScore
+
+    # Using Logistic Model
+    logisticPrediction = logisticModel.predict(processedData)
+    logisticCreditScore = scoreRanges[logisticPrediction[0]]
+
+    # Using Random Forest Model
+    randomForestPrediction = randomForestModel.predict(processedData)
+    randomForestCreditScore = scoreRanges[randomForestPrediction[0]]
+
+    results = {'linearCreditScore': int(linearCreditScore), 'svrCreditScore': int(svrCreditScore), 'logisticCreditScore':
+               logisticCreditScore, 'randomForestCreditScore': randomForestCreditScore}
+
+    return results

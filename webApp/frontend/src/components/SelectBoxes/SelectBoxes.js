@@ -3,22 +3,29 @@ import { Row } from 'antd';
 import SelectBox from './SelectBox';
 
 const homeOwnOptions = [
-  { value: 'homeMortgage', label: 'Home Mortgage' },
-  { value: 'rent', label: 'Rent' },
-  { value: 'own', label: 'Own Home' },
-  { value: 'haveMortgage', label: 'Have Mortgage' }
+  { value: 'Home Mortgage', label: 'Home Mortgage' },
+  { value: 'Own Home', label: 'Own Home' },
+  { value: 'Rent', label: 'Rent' }
 ];
 
 const purposeOptions = [
-  { value: 'debtConsolidation', label: 'Debt Consolidation' },
-  { value: 'homeImprovements', label: 'Home Improvements' },
-  { value: 'other', label: 'other' },
-  { value: 'business', labe: 'Business Loan' }
+  { value: 'Home Improvements', label: 'Home Improvements' },
+  { value: 'Debt Consolidation', label: 'Debt Consolidation' },
+  { value: 'Buy House', label: 'Buy House' },
+  { value: 'Business Loan', label: 'Business Loan' },
+  { value: 'Other', label: 'Other' },
+  { value: 'marjor_purhcase', label: 'marjor_purhcase' },
+  { value: 'vacation', label: 'vacation' },
+  { value: 'Medical Bills', label: 'Medical Bills' },
+  { value: 'wedding', labe: 'wedding' },
+  { value: 'Educational Expenses', labe: 'Educational Expenses' },
+  { value: 'moving', labe: 'moving' },
+  { value: 'renewable_energer', labe: 'renewable_energer' }
 ];
 
 const loanStatusOptions = [
-  { value: 'fullyPaid', label: 'Fully Paid'},
-  { value: 'chargedOff', label: 'Charged Off'}
+  { value: 'Fully Paid', label: 'Fully Paid' },
+  { value: 'Charged Off', label: 'Charged Off' }
 ];
 
 const SelectBoxes = props => {
