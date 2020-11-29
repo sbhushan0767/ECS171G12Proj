@@ -8,9 +8,6 @@ from sklearn.preprocessing import LabelEncoder
 
 df = pd.read_csv('../../../../datasets/credit.csv')
 
-le = LabelEncoder()
-df[["Credit Score Range"]] = df[["Credit Score Range"]].apply(le.fit_transform)
-
 X = df.drop(columns=['Loan ID', 'Customer ID',
                      'Credit Score', 'Credit Score Range'])
 y = df['Credit Score']
