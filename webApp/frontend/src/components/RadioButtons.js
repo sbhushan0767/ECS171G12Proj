@@ -15,8 +15,8 @@ const RadioButtons = props => {
         <Col span={8} offset={props.offset}>
           <Radio.Group onChange={e => props.setTerm(e.target.value)}>
             <StyledContainer>
-              <Radio value={'Short Term'}>Short Term</Radio>
-              <Radio value={'Long Term'}>Long Term</Radio>
+              <Radio value={0}>Short Term</Radio>
+              <Radio value={1}>Long Term</Radio>
             </StyledContainer>
           </Radio.Group>
         </Col>
