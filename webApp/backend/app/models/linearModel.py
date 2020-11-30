@@ -19,7 +19,7 @@ X = df.drop(columns=['Loan ID', 'Customer ID', 'Credit Score Range',
 
 y = df['Credit Score']
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.3, random_state=1)
+    X, y, test_size=0.25, random_state=1)
 
 LR_model = LinearRegression()
 LR_model.fit(X_train, y_train)
